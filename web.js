@@ -3,7 +3,12 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World2!');
+  var fc = ""; 
+  fs.readFileSync('index.html', function (err, data) {
+    if (err) throw err;
+    fc = data; 
+  )};  
+  response.send(fc);
 });
 
 var port = process.env.PORT || 5000;
